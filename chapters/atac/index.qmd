@@ -15,6 +15,8 @@ ATAC-seq provides a simple and scalable way to assay the regions of the genome t
 
 ### Single-cell ATAC-Seq
 
+![Overview of mechanisms influencing chromatin accessibility. [Source](https://www.sc-best-practices.org/chromatin_accessibility/introduction.html)](https://www.sc-best-practices.org/_images/mechanisms_overview.png){#fig-sc-atac-mechanisms-overview}
+
 - ATAC-Seq quantifies DNA and can be applied to frozen/fixed tisues where nuclei can be isolated
 
 ![Wet-lab workflow](https://media.springernature.com/full/springer-static/image/art%3A10.1007%2Fs42994-022-00082-5/MediaObjects/42994_2022_82_Fig1_HTML.png?as=webp)
@@ -59,6 +61,35 @@ ATAC-seq provides a simple and scalable way to assay the regions of the genome t
 Single-cell ATAC sequencing analysis: From data preprocessing to hypothesis generation
 
 @baek2020single
+
+![Overview of the scATAC-seq analysis steps](https://www.sc-best-practices.org/_images/overview_atac.jpeg){#fig-sc-atac-analysis-overview}
+
+SC best practices: https://www.sc-best-practices.org/chromatin_accessibility  
+
+Overview of scATAC-seq data analysis: https://www.youtube.com/watch?v=sUq4yTIJqvk
+
+### Challenges
+
+- Current single-cell ATAC-seq (scATAC-seq) data is too sparse to reliably measure chromatin accessibility at true single-cell resolution
+- Most scATAC-seq datasets contain >90% zeros, meaning most genomic regions in most cells have little or no detectable signal. This creates major computational and biological interpretation challenges
+- The authors identify four major problems in scATAC-seq analysis:
+  - how fragments are quantified
+  - sequencing-depth normalization
+  - region-specific technical bias (e.g. GC bias)
+  - interpretation of chromatin accessibility itself
+- They strongly critique the widely used TF-IDF normalization, showing that it often fails to remove sequencing-depth effects and can even exaggerate technical variation instead of correcting it.  
+- The paper proposes a new hierarchical probabilistic model that directly models counts while accounting for:
+  - sequencing depth
+  - dropout
+  - background accessibility
+  - open/closed chromatin states
+- Through simulations, the authors show that even with idealized conditions, most peaks do not contain enough information to accurately determine whether chromatin is open or closed in individual cells
+- In real datasets, they estimate that more than 75% of peaks lack sufficient signal for reliable single-cell inference, even for biologically important marker regions
+- Despite this, scATAC-seq still works well for tasks like cell-type clustering because methods such as dimensionality reduction aggregate weak signals across many peaks and cells
+- The paper concludes that current scATAC-seq analyses succeed mainly because of aggregation strategies (feature aggregation, pseudo-bulking, clustering), not because the assay truly resolves chromatin accessibility at single-cell precision
+- The authors argue that major progress will likely require better experimental assays (e.g. improved Tn5 sensitivity such as scTurboATAC), rather than only more sophisticated computational methods
+
+@kwok2024going
 
 ## Feature selection
 
