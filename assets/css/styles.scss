@@ -5,8 +5,8 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Nunito:ital,wght@0,400;0,600;1,400;1,600&display=swap');
 
 $code-block-bg: WhiteSmoke;
-$font-family-sans-serif: 'Nunito', 'Source Sans Pro', 'Helvetica', 'sans-serif';
-$font-family-monospace: 'JetBrains Mono', 'Ubuntu Mono', 'Lucida Console', 'Courier', 'monospace';
+$font-family-sans-serif: 'Nunito', 'Source Sans Pro', 'Helvetica', sans-serif;
+$font-family-monospace: 'JetBrains Mono', 'Ubuntu Mono', 'Lucida Console', 'Courier', monospace;
 $font-size-root: 18px;
 $code-font-size: 14px;
 /* major second scale */
@@ -26,43 +26,48 @@ $code-bg: $code-block-bg;
 
 /* major third scale */
 .largest {
-    font-size: 1.953em;
+  font-size: 1.953em;
 }
 
 .larger {
-    font-size: 1.563em;
+  font-size: 1.563em;
 }
 
 .large {
-    font-size: 1.25em;
+  font-size: 1.25em;
 }
 
 .small {
-    font-size: 0.8em;
+  font-size: 0.8em;
 }
 
 .smaller {
-    font-size: 0.64em;
+  font-size: 0.64em;
 }
 
 .smallest {
-    font-size: 0.512em;
+  font-size: 0.512em;
 }
 
 .highlight {
-    background-color: $secondary;
-    color: white;
-    font-size: 0.85em;
-    padding: 0.2em 0.3em;
-    border-radius: 4px;
-    vertical-align: baseline;
+  background-color: $secondary;
+  color: white;
+  font-size: 0.85em;
+  padding: 0.2em 0.3em;
+  border-radius: 4px;
+  vertical-align: baseline;
 }
 
 .references {
-    font-size: 0.8em;
+  font-size: 0.8em;
 }
 
 .citation {
-    font-size: 0.8em;
-    color: gray;
+  font-size: 0.8em;
+  color: gray;
+}
+
+.figcaption {
+  font-size: 0.8em;
+  line-height: 1.4em;
 }
