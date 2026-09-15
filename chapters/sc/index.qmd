@@ -175,6 +175,16 @@ Identification and correction for free RNA background contamination in single-ce
 
 ![Accuracy of computational background noise estimation. A Estimated background noise levels per cell based on genetic variants (gray) and different computational tools. B Taking the genotype-based estimates as ground truth, Root Mean Squared Logarithmic Error (RMSLE) and Kendall rank correlation serve as evaluation metrics for cell-wise background noise estimates of different methods. Low RMSLE values indicate high similarity between estimated values and the assumed ground truth. High values of Kendall’s correspond to good representation of cell to cell variability in the estimated values](assets/janssen-2023-1.webp)
 
+- Background noise reduces marker gene specificity by causing genes to appear in incorrect cell types.
+- Most contamination comes from ambient RNA, while barcode swapping contributes only a small fraction (≤10%).
+- Empty-droplet profiles better represent contamination than endogenous cell-expression profiles and are preferable for modeling background noise.
+- CellBender performed best overall, accurately removing contamination while preserving biological variation.
+- SoupX underestimated cell-to-cell variation.
+- DecontX sometimes over-corrected and removed real biological signal.
+- Background correction mainly improves marker gene detection; effects on cell classification and overall data structure are relatively modest.
+
+> Existing methods for background removal are good at removing such stray marker gene molecule counts. In contrast, classification and clustering of cells is rather robust even at high levels of background noise. Consequently, background removal improves the classification of only few cells. Moreover, it seems that for low and moderate background levels the tightening of existing broad structures may go at the cost of fine structure. In summary, for marker gene analysis, we would always recommend background removal, but for classification, clustering and pseudotime analyses, we would only recommend background removal when background noise levels are high.
+
 @janssen2023effect
 
 **Tools**
